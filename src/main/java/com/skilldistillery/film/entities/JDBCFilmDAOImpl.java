@@ -6,18 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.skilldistillery.filmquery.entities.Film;
+import com.skilldistillery.film.entities.Film;
 
 public class JDBCFilmDAOImpl implements FilmDAO {
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
 	private String user = "student";
 	private String pass = "student";
 	private String sql;
-	
-	public JDBCFilmDAOImpl() throws ClassNotFoundException{
+
+	public JDBCFilmDAOImpl() throws ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 	}
-	
+
 	@Override
 	public Film getFilmById(int filmId) {
 		try {
@@ -26,24 +26,24 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
 			ResultSet rs = stmt.executeQuery();
-			
+
 			if (rs.next()) {
-				Film film = new Film(rs.getInt("id"), rs.getString("title"), rs.getString("description"),
-						rs.getInt("release_year"), rs.getInt("language_id"), rs.getInt("rental_duration"),
-						rs.getDouble("rental_rate"), rs.getInt("length"), rs.getDouble("replacement_cost"),
+				Film film = new Film(rs.getInt("id"), rs.getString("title"), rs.getInt("release_year"),
+						rs.getString("description"), rs.getInt("language_id"), rs.getInt("rental_duration"),
+						rs.getDouble("rental_rate"), rs.getDouble("replacement_cost"), rs.getInt("length"),
 						rs.getString("rating"), rs.getString("special_features"));
-				
+
 				return film;
 			}
-			
+
 			rs.close();
 			stmt.close();
 			conn.close();
-			
-			return null;
+
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 		}
+		return null;
 	}
 
 }
