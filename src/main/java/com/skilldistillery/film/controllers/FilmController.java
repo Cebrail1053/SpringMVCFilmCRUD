@@ -1,15 +1,12 @@
 package com.skilldistillery.film.controllers;
 
-import org.springframework.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@controller
-
+@Controller
 public class FilmController {
-
 	
-	
-	@RequestMapping(path= {"/", "home.do"});
+	@RequestMapping(path= {"/", "home.do"})
 	public String index() {
 		return "WEB-INF/home.jsp";
 	}
