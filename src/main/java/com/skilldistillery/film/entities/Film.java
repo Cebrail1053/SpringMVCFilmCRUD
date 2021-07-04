@@ -1,6 +1,6 @@
 package com.skilldistillery.film.entities;
 
-import java.util.*;
+import java.util.List;
 
 public class Film {
 
@@ -15,7 +15,9 @@ public class Film {
 	private int length;
 	private String rating;
 	private String specialFeatures;
-//	private List<Actor> actors;
+	private List<Actor> actors;
+	private String language;
+	private String category;
 
 
 	public Film() {
@@ -207,6 +209,30 @@ public class Film {
 		} else if (!title.equals(other.title))
 			return false;
 		return true;
+	}
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }
