@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Film Result</title>
+<title>Search by Keyword</title>
 </head>
 <body>
+
 	<h1>Welcome to the Film App</h1>
 
 	<h2>Film Title: ${film.title}</h2>
@@ -79,5 +80,7 @@
 
 		</p>
 	</footer>
+
+
 </body>
 </html>
