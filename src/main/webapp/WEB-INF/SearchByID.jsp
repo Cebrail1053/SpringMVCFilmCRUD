@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<h1>Welcome to the Film App</h1>
+	<h1>Search by ID Results: </h1>
 
 	<h2>Film Title: ${film.title}</h2>
 

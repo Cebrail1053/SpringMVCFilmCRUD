@@ -8,7 +8,7 @@
 <title>Delete Film</title>
 </head>
 <body>
-	<h1>Welcome to the Film App</h1>
+	<h1>Film Deletion</h1>
 	<h2>Delete Film:</h2>
 
 
