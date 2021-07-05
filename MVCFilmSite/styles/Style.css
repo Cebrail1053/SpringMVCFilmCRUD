@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+html {
+	background-image:
+		url("https://d2ycltig8jwwee.cloudfront.net/articles/853/detail.af5eeb25.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	background-color: #2E1114;
+	color: #ADADAD;
+	padding: 15px;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+}
+
+h2 {
+	text-decoration: underline;
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #501B1D;
+	color: #ADADAD;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	display: inline-block;
+}
+
+h3 {
+	text-decoration: underline;
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #2E1114;
+	color: #ADADAD;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	display: inline-block;
+	text-align: center;
+}
+
+form{
+	text-decoration: underline;
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #501B1D;
+	color: #ADADAD;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	display: inline-block;
+	text-align: center;
+}
+
+.btn{
+	color: white;
+}
+
+.btn:hover{
+	color: grey;
+}
+
+
+tbody {
+	display: block;
+	overflow: auto;
+	height: 450px;
+	width: 100%;
+	overflow: scroll;
+}
+
+td {
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	text-align: center;
+	padding: 15px;
+	background-color: #501B1D;
+	color: #ADADAD;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	overflow: scroll;
+}
+
+tr:hover {
+	background-color: 85DCB;
+	opacity: .75;
+}
+
+footer {
+	text-align: center;
+	padding: 15px;
+	color: white;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	padding: 15px;
+}
+
+input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #ADADAD;
+	color: white;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+}
