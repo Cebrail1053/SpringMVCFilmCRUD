@@ -8,7 +8,7 @@
 <title>Add Film Result</title>
 </head>
 <body>
-	<h1>Welcome to the Film App</h1>
+	<h1>Film Added</h1>
 
 	<h2>Film Title: ${film.title}</h2>
 
@@ -70,6 +70,10 @@
 
 
 	</table>
+	
+	<form action="updatefilm.do" method="GET">
+			<button type="submit" name="id" value="${film.id}"> Update Film</button>
+		</form>
 
 	<footer>
 		<p>

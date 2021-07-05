@@ -32,9 +32,24 @@ h2 {
 	color: #ADADAD;
 	opacity: .9;
 	text-shadow: 1px 2px 1px black;
+	display: inline-block;
 }
 
-h3{
+h3 {
+	text-decoration: underline;
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #2E1114;
+	color: #ADADAD;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	display: inline-block;
+	text-align: center;
+}
+
+form{
 	text-decoration: underline;
 	border-style: groove;
 	border-width: medium;
@@ -44,7 +59,18 @@ h3{
 	color: #ADADAD;
 	opacity: .9;
 	text-shadow: 1px 2px 1px black;
+	display: inline-block;
+	text-align: center;
 }
+
+.btn{
+	color: white;
+}
+
+.btn:hover{
+	color: grey;
+}
+
 
 tbody {
 	display: block;
@@ -72,9 +98,25 @@ tr:hover {
 	opacity: .75;
 }
 
-footer{
+footer {
 	text-align: center;
 	padding: 15px;
+	color: white;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	padding: 15px;
+}
+
+input[type=text] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	padding: 15px;
+	background-color: #ADADAD;
 	color: white;
 	opacity: .9;
 	text-shadow: 1px 2px 1px black;
