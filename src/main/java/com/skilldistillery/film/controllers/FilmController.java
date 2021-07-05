@@ -20,7 +20,7 @@ public class FilmController {
 	
 	@RequestMapping(path= {"/", "home.do"})
 	public String index() {
-		return "WEB-INF/home.jsp";
+		return "WEB-INF/Index.jsp";
 	}
 	
 	@RequestMapping(path="getFilm.do", method=RequestMethod.GET)
