@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" type="text/css" href="styles/Style.css">
 <!DOCTYPE html>
 <html>
@@ -10,70 +11,66 @@
 <body>
 	<h1>Film Added</h1>
 
-	<h2>Film Title: ${film.title}</h2>
+	<h2>Film Title: ${createdFilm.title}</h2>
 
 	<table>
 		<tr>
 			<td>Film ID:</td>
-			<td>${film.id}</td>
+			<td>${createdFilm.id}</td>
 		</tr>
 
 		<tr>
 			<td>Film Title:</td>
-			<td>${film.title}</td>
+			<td>${createdFilm.title}</td>
 		</tr>
 
 		<tr>
 			<td>Release Year:</td>
-			<td>${film.releaseYear}</td>
+			<td>${createdFilm.releaseYear}</td>
 		</tr>
 
 		<tr>
 			<td>Film Description:</td>
-			<td>${film.description}</td>
+			<td>${createdFilm.description}</td>
 		</tr>
 
 		<tr>
 			<td>Film Language:</td>
-			<td>${film.language}</td>
+			<td>${createdFilm.language}</td>
 		</tr>
 
 		<tr>
 			<td>Rental Duration:</td>
-			<td>${film.rentalDuration}</td>
+			<td>${createdFilm.rentalDuration}</td>
 		</tr>
 
 		<tr>
 			<td>Rental Rate:</td>
-			<td>${film.rentalRate}</td>
+			<td>${createdFilm.rentalRate}</td>
 		</tr>
 
 		<tr>
 			<td>Replacement Cost:</td>
-			<td>${film.replacementCost}</td>
+			<td>${createdFilm.replacementCost}</td>
 		</tr>
 
 		<tr>
 			<td>Film Length:</td>
-			<td>${film.length}</td>
+			<td>${createdFilm.length}</td>
 		</tr>
 
 		<tr>
 			<td>Film Rating:</td>
-			<td>${film.rating}</td>
+			<td>${createdFilm.rating}</td>
 		</tr>
 
 		<tr>
 			<td>Special Features</td>
-			<td>${film.specialFeatures}</td>
+			<td>${createdFilm.specialFeatures}</td>
 		</tr>
 
 
 	</table>
-	
-	<form action="updatefilm.do" method="GET">
-			<button type="submit" name="id" value="${film.id}"> Update Film</button>
-		</form>
 
 	<footer>
 		<p>

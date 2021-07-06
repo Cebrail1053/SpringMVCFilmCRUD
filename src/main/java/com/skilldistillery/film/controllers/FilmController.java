@@ -34,10 +34,11 @@ public class FilmController {
 	
 	@RequestMapping(path="newFilm.do", method=RequestMethod.POST)
 	public ModelAndView createFilm(Film film, RedirectAttributes redir) {
+		System.out.println(film);
 		ModelAndView mv = new ModelAndView();
 		Film f = filmDAO.createFilm(film);
 		redir.addFlashAttribute("createdFilm", f);
-		mv.setViewName("redirect: filmCreated.do");
+		mv.setViewName("redirect: createdFilm.do");
 		return mv;
 	}
 	
@@ -57,7 +58,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping(path="deletedFilm.do", method=RequestMethod.GET)
+	@RequestMapping(path="filmDeleted.do", method=RequestMethod.GET)
 	public ModelAndView filmDeleted() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/DeleteFilmResult.jsp");
@@ -85,7 +86,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDAO.findFilmsByKeyword(keyword);
 		mv.addObject("films", films);
-		mv.setViewName("WEB-INF/SearchByKeyword.jsp");
+		mv.setViewName("WEB-INF/SeachByKeyword.jsp");
 		return mv;
 	}
 }

@@ -5,11 +5,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCFilmDAOImpl implements FilmDAO {
-	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
+	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
+//	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
 	private String user = "student";
 	private String pass = "student";
 	private String sql;
@@ -20,6 +22,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 	@Override
 	public Film getFilmById(int filmId) {
+		Film film = null;
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 			sql = "SELECT * FROM film WHERE id = ?";
@@ -28,14 +31,13 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				Film film = new Film(rs.getInt("id"), rs.getString("title"), rs.getInt("release_year"),
+				film = new Film(rs.getInt("id"), rs.getString("title"), rs.getInt("release_year"),
 						rs.getString("description"), rs.getInt("language_id"), rs.getInt("rental_duration"),
 						rs.getDouble("rental_rate"), rs.getDouble("replacement_cost"), rs.getInt("length"),
 						rs.getString("rating"), rs.getString("special_features"));
 				
 				findFilmLanguageByCode(film);
 				
-				return film;
 			}
 
 			rs.close();
@@ -45,7 +47,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 		}
-		return null;
+		return film;
 	}
 
 	public Film createFilm(Film film) {
@@ -56,7 +58,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			conn.setAutoCommit(false);
 			sql = "INSERT INTO film (title, description, release_year, length, rating, special_features, language_id, rental_duration, rental_rate, replacement_cost) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			PreparedStatement stmt = conn.prepareStatement(sql);
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			stmt.setString(1, film.gettitle());
 			stmt.setString(2, film.getdescription());
