@@ -5,11 +5,11 @@ import java.util.List;
 public interface FilmDAO {
 	public Film getFilmById(int filmId);
 	
-	public Film createFilm(Film film);
+	public boolean createFilm(Film film);
 	
-	public Film deleteFilm(int filmId);
+	public boolean deleteFilm(int filmId);
 	
-	public Film updateFilm(Film film);
+	public boolean updateFilm(Film film);
 	
 	public List<Film> findFilmsByKeyword(String keyword);
 	
