@@ -17,7 +17,6 @@
 
 			<h2>Film Title: ${film.title}</h2>
 			<br>
-			<form action="deleteFilm.do" method="POST">
 			
 				<table>
 					<tr>
@@ -93,7 +92,7 @@
 				<button type="submit" name="filmId" value="${film.id }">Delete</button>
 			</form>
 			
-			<form action="deleteFilmForm.do" method="GET">
+			<form action="updateFilmForm.do" method="GET">
 				<button type="submit" name="filmId" value="${film.id }">Edit</button>
 			</form>
 			
