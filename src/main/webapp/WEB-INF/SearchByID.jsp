@@ -92,6 +92,8 @@
 			<form action="deleteFilm.do" method="POST">
 				<button type="submit" name="filmId" value="${film.id }">Delete</button>
 			</form>
+				<a href="WEB-INF/UpdateFilm.jsp">Edit</a>
+			
 			
 			
 		</c:when>
