@@ -67,7 +67,9 @@
 
 	<h3>Update film information</h3>
 	<br>
-
+<!-- <form action="updateFilmForm.do">
+    <input type="submit" value="Click here to update film" />
+</form> -->
 	<form action="updateFilm.do" method="POST">
 		Enter film ID: <input type="text" name="filmId" size="12" />
 		Enter film title: <input type="text" name="title" size="12" />
