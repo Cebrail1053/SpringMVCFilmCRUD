@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Failed to Delete</title>
+<title>Task Fail</title>
 </head>
 <body>
 
-  <h3>The Film could not be removed from the database.</h3>
+  <h3>The task could not be completed as requested.</h3>
 
 </body>
 </html>
