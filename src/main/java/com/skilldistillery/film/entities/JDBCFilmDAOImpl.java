@@ -50,8 +50,9 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		return film;
 	}
 
-	public Film createFilm(Film film) {
+	public boolean createFilm(Film film) {
 		Connection conn = null;
+		boolean created = false;
 
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
@@ -84,6 +85,8 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				film.setId(filmId);
 				findFilmLanguageByCode(film);
 			}
+			
+			created = true;
 
 			conn.commit();
 		} catch (SQLException sqle) {
@@ -101,11 +104,12 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			}
 		}
 
-		return film;
+		return created;
 	}
 
-	public Film deleteFilm(int filmId) {
+	public boolean deleteFilm(int filmId) {
 		Connection conn = null;
+		boolean deleted = false;
 
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
@@ -116,6 +120,8 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 			int uc = stmt.executeUpdate();
 			System.out.println(uc + " film records deleted");
+			
+			deleted = true;
 
 			conn.commit();
 
@@ -133,11 +139,12 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			}
 		}
 
-		return null;
+		return deleted;
 	}
 
-	public Film updateFilm(Film film) {
+	public boolean updateFilm(Film film) {
 		Connection conn = null;
+		boolean updated = false;
 
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
@@ -163,11 +170,8 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 			int uc = stmt.executeUpdate();
 			System.out.println(uc + " film records updated");
-
-//			ResultSet keys = stmt.getGeneratedKeys();
-//			if (keys.next()) {
-//				f = getFilmById(keys.getInt(1));
-//			}
+			
+			updated = true;
 
 			conn.commit();
 
@@ -185,7 +189,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			}
 		}
 
-		return film;
+		return updated;
 	}
 
 	public List<Film> findFilmsByKeyword(String keyword) {

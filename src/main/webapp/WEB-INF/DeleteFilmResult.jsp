@@ -9,6 +9,6 @@
 </head>
 
 <body>
-<h1>Remove Film from Database</h1>
+<h1>Removed Film from Database</h1>
 </body>
 </html>
