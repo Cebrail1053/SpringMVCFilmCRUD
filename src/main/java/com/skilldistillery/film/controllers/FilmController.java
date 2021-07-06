@@ -37,8 +37,8 @@ public class FilmController {
 		System.out.println(film);
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.createFilm(film);
-		if (f) {
-			redir.addFlashAttribute("createdFilm", f);
+		redir.addFlashAttribute("createdFilm", f);
+		if (f == true) {
 			mv.setViewName("redirect: createdFilm.do");
 		} else {
 			mv.setViewName("WEB-INF/TaskFail.jsp");
@@ -57,8 +57,8 @@ public class FilmController {
 	public ModelAndView deleteFilm(Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.deleteFilm(film);
-		if (f) {
-			redir.addFlashAttribute("deleteFilm", f);
+		redir.addFlashAttribute("deleteFilm", f);
+		if (f == true) {
 			mv.setViewName("redirect: filmDeleted.do");
 		} else {
 			mv.setViewName("WEB-INF/TaskFail.jsp");
@@ -77,8 +77,8 @@ public class FilmController {
 	public ModelAndView updateFilm(Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.updateFilm(film);
-		if(f) {
-			redir.addFlashAttribute("updatedFilm", f);
+		redir.addFlashAttribute("updatedFilm", f);
+		if(f == true) {
 			mv.setViewName("redirect: filmUpdated.do");
 		} else {
 			mv.setViewName("WEB-INF/TaskFail.jsp");
