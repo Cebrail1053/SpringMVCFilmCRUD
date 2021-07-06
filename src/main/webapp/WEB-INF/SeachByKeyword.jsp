@@ -12,14 +12,14 @@
 
 	<h1>Welcome to the Film App</h1>
 	<c:choose>
-		<c:when test="${! empty list }">
+		<c:when test="${! empty films }">
 				<table>
 				<tr>
 					<th>ID</th>
 					<th>Title</th>
 					<th>Description</th>
-					<th>Description</th>
 					<th>Release Year</th>
+					<th>Language</th>
 					<th>Rental Duration</th>
 					<th>Rental Rate</th>
 					<th>Replacement Cost</th>
@@ -37,6 +37,7 @@
 					<td>${film.title }</td>				
 					<td>${film.description }</td>				
 					<td>${film.releaseYear }</td>				
+					<td>${film.language }</td>				
 					<td>${film.rentalDuration }</td>				
 					<td>${film.rentalRate }</td>				
 					<td>${film.replacementCost }</td>				

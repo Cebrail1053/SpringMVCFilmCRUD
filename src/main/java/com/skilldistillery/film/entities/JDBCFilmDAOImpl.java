@@ -37,6 +37,8 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 						rs.getString("rating"), rs.getString("special_features"));
 				
 				findFilmLanguageByCode(film);
+				findActorsByFilmId(film);
+				findCategoryByFilmId(film);
 				
 			}
 
@@ -83,7 +85,6 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			}
 			if (filmId != 0) {
 				film.setId(filmId);
-				findFilmLanguageByCode(film);
 			}
 			
 			created = true;
@@ -107,7 +108,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		return created;
 	}
 
-	public boolean deleteFilm(int filmId) {
+	public boolean deleteFilm(Film film) {
 		Connection conn = null;
 		boolean deleted = false;
 
@@ -116,7 +117,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			conn.setAutoCommit(false);
 			sql = "DELETE FROM film WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, filmId);
+			stmt.setInt(1, film.getId());
 
 			int uc = stmt.executeUpdate();
 			System.out.println(uc + " film records deleted");
@@ -209,7 +210,11 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 						rs.getString("description"), rs.getInt("language_id"), rs.getInt("rental_duration"),
 						rs.getDouble("rental_rate"), rs.getDouble("replacement_cost"), rs.getInt("length"),
 						rs.getString("rating"), rs.getString("special_features"));
-
+				
+				findActorsByFilmId(film);
+				findCategoryByFilmId(film);
+				findFilmLanguageByCode(film);
+				
 				list.add(film);
 			}
 			
@@ -249,7 +254,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		return f;
 	}
 	
-	public List<Actor> findActorsByFilmId(int filmId) {
+	public Film findActorsByFilmId(Film film) {
 		ArrayList<Actor> list = new ArrayList<>();
 		
 		try {
@@ -257,7 +262,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			sql = "SELECT * FROM actor JOIN film_actor ON actor.id = film_actor.actor_id"
 					+ " JOIN film ON film_actor.film_id = film.id" + " WHERE film.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, filmId);
+			stmt.setInt(1, film.getId());
 			ResultSet rs = stmt.executeQuery();
 			
 			while(rs.next()) {
@@ -265,6 +270,8 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				
 				list.add(actor);
 			}
+			
+			film.setActors(list);
 			
 			rs.close();
 			stmt.close();
@@ -274,7 +281,7 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 			sqle.printStackTrace();
 		}
 		
-		return list;
+		return film;
 	}
 	
 	public Film findCategoryByFilmId(Film f) {

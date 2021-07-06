@@ -7,7 +7,7 @@ public interface FilmDAO {
 	
 	public boolean createFilm(Film film);
 	
-	public boolean deleteFilm(int filmId);
+	public boolean deleteFilm(Film film);
 	
 	public boolean updateFilm(Film film);
 	
@@ -15,7 +15,7 @@ public interface FilmDAO {
 	
 	public Film findFilmLanguageByCode(Film f);
 	
-	public List<Actor> findActorsByFilmId(int filmId);
+	public Film findActorsByFilmId(Film film);
 	
 	public Film findCategoryByFilmId(Film f);
 
