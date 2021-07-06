@@ -65,6 +65,7 @@
 	</form>
 	<br>
 
+<<<<<<< HEAD
 	<h3>Update film information</h3>
 	<br>
 <!-- <form action="updateFilmForm.do">
@@ -84,6 +85,8 @@
 		<input type="submit" value="submit updates" /> <br>
 	</form>
 	<br>
+=======
+>>>>>>> 9a1b20ae05b00570b8a4dc4c50778aa8a9ada975
 	<footer>
 		<p>
 			<small>Created by: <br> Gabriel Avila <br> and <br>
