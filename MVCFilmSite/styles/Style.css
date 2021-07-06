@@ -81,6 +81,8 @@ tbody {
 }
 
 td {
+	display: flex;
+	justify-content: center;
 	border-style: groove;
 	border-width: medium;
 	border-radius: 5px;

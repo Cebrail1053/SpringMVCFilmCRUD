@@ -4,13 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Delete Film</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Failed to Delete</title>
 </head>
 <body>
-	<h1>Film Deletion</h1>
-	<h2>Delete Film:</h2>
 
+  <h3>The Film could not be removed from the database.</h3>
 
 </body>
 </html>
