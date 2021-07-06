@@ -92,7 +92,10 @@
 			<form action="deleteFilm.do" method="POST">
 				<button type="submit" name="filmId" value="${film.id }">Delete</button>
 			</form>
-				<a href="WEB-INF/UpdateFilm.jsp">Edit</a>
+			
+			<form action="deleteFilmForm.do" method="GET">
+				<button type="submit" name="filmId" value="${film.id }">Edit</button>
+			</form>
 			
 			
 			

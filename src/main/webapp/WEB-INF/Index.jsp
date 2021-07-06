@@ -65,23 +65,6 @@
 	</form>
 	<br>
 
-	<h3>Update film information</h3>
-	<br>
-
-	<form action="updateFilm.do" method="POST">
-		Enter film ID: <input type="text" name="filmId" size="12" />
-		Enter film title: <input type="text" name="title" size="12" />
-		Enter film description: <input type="text" name="description" size="12" />
-		Enter film release year: <input type="text" name="releaseYear" size="12" />
-		Enter film rental rate: <input type="text" name="rentalRate" size="12" />
-		Enter film rental duration: <input type="text" name="rentalDuration" size="12" />
-		Enter film length: <input type="text" name="length" size="12" />
-		Enter film replacement cost: <input type="text" name="replacementCost" size="12" />
-		Enter film rating: <input type="text" name="rating" size="12" />
-		Enter film special features: <input type="text" name="specialFeatures" size="12" />
-		<input type="submit" value="submit updates" /> <br>
-	</form>
-	<br>
 	<footer>
 		<p>
 			<small>Created by: <br> Gabriel Avila <br> and <br>

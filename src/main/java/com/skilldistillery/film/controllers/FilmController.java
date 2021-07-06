@@ -101,4 +101,13 @@ public class FilmController {
 		mv.setViewName("WEB-INF/SeachByKeyword.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path="updateFilmForm.do", method=RequestMethod.GET)
+	public ModelAndView updateForm(Integer filmId) {
+		ModelAndView mv = new ModelAndView();
+		Film f = filmDAO.getFilmById(filmId);
+		mv.addObject("film", f);
+		mv.setViewName("WEB-INF/UpdateFilm.jsp");
+		return mv;
+	}
 }
