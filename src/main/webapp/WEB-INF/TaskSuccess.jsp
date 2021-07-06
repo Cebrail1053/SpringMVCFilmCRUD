@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Film Removed</title>
+<title>Task Successful</title>
 </head>
 <body>
 
-  <h3>The film has successfully been removed from the database.</h3>
+  <h3>The task was completed successfully.</h3>
 
 </body>
 </html>

@@ -134,3 +134,16 @@ input[type=text] {
 	opacity: .9;
 	text-shadow: 1px 2px 1px black;
 }
+
+p {
+	border-style: groove;
+	border-width: medium;
+	border-radius: 5px;
+	text-align: center;
+	padding: 15px;
+	background-color: #2E1114;
+	color: #ADADAD;
+	opacity: .9;
+	text-shadow: 1px 2px 1px black;
+	overflow: scroll;
+}

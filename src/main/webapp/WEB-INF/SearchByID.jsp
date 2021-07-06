@@ -15,6 +15,7 @@
 		<c:when test="${! empty film }">
 
 			<h2>Film Title: ${film.title}</h2>
+			<br>
 			<form action="deleteFilm.do" method="POST">
 			
 				<table>
@@ -71,6 +72,18 @@
 					<tr>
 						<td>Special Features</td>
 						<td>${film.specialFeatures}</td>
+					</tr>
+					
+					<tr>
+					<td>Actors</td>
+					<td><c:forEach items="${film.actors }" var="actor">
+						${actor.firstName }	&nbsp; ${actor.lastName }	<br>
+					</c:forEach></td>		
+					</tr>
+					
+					<tr>
+					<td>Category</td>
+					<td>${film.category}</td>
 					</tr>
 
 				</table>
