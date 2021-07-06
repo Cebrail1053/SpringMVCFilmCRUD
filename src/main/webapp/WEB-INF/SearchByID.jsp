@@ -14,72 +14,72 @@
 	<c:choose>
 		<c:when test="${! empty film }">
 
+
 			<h2>Film Title: ${film.title}</h2>
+
+			<table>
+				<tr>
+					<td>Film ID:</td>
+					<td>${film.id}</td>
+				</tr>
+
+				<tr>
+					<td>Film Title:</td>
+					<td>${film.title}</td>
+				</tr>
+
+				<tr>
+					<td>Release Year:</td>
+					<td>${film.releaseYear}</td>
+				</tr>
+
+				<tr>
+					<td>Film Description:</td>
+					<td>${film.description}</td>
+				</tr>
+
+				<tr>
+					<td>Film Language:</td>
+					<td>${film.language}</td>
+				</tr>
+
+				<tr>
+					<td>Rental Duration:</td>
+					<td>${film.rentalDuration}</td>
+				</tr>
+
+				<tr>
+					<td>Rental Rate:</td>
+					<td>${film.rentalRate}</td>
+				</tr>
+
+				<tr>
+					<td>Replacement Cost:</td>
+					<td>${film.replacementCost}</td>
+				</tr>
+
+				<tr>
+					<td>Film Length:</td>
+					<td>${film.length}</td>
+				</tr>
+
+				<tr>
+					<td>Film Rating:</td>
+					<td>${film.rating}</td>
+				</tr>
+
+				<tr>
+					<td>Special Features</td>
+					<td>${film.specialFeatures}</td>
+				</tr>
+
+			</table>
+
 			<form action="deleteFilm.do" method="POST">
-			
-				<table>
-					<tr>
-						<td>Film ID:</td>
-						<td>${film.id}</td>
-					</tr>
-
-					<tr>
-						<td>Film Title:</td>
-						<td>${film.title}</td>
-					</tr>
-
-					<tr>
-						<td>Release Year:</td>
-						<td>${film.releaseYear}</td>
-					</tr>
-
-					<tr>
-						<td>Film Description:</td>
-						<td>${film.description}</td>
-					</tr>
-
-					<tr>
-						<td>Film Language:</td>
-						<td>${film.language}</td>
-					</tr>
-
-					<tr>
-						<td>Rental Duration:</td>
-						<td>${film.rentalDuration}</td>
-					</tr>
-
-					<tr>
-						<td>Rental Rate:</td>
-						<td>${film.rentalRate}</td>
-					</tr>
-
-					<tr>
-						<td>Replacement Cost:</td>
-						<td>${film.replacementCost}</td>
-					</tr>
-
-					<tr>
-						<td>Film Length:</td>
-						<td>${film.length}</td>
-					</tr>
-
-					<tr>
-						<td>Film Rating:</td>
-						<td>${film.rating}</td>
-					</tr>
-
-					<tr>
-						<td>Special Features</td>
-						<td>${film.specialFeatures}</td>
-					</tr>
-
-				</table>
-
-
 				<button type="submit" name="filmId" value="${film.id }">Delete</button>
-
-				<!--   <input type="submit"> -->
 			</form>
+			
+			
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
