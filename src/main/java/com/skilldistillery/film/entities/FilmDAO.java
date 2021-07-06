@@ -7,7 +7,7 @@ public interface FilmDAO {
 	
 	public boolean createFilm(Film film);
 	
-	public boolean deleteFilm(Film film);
+	public boolean deleteFilm(Integer filmId);
 	
 	public boolean updateFilm(Film film);
 	

@@ -76,6 +76,9 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 			int uc = stmt.executeUpdate();
 			System.out.println(uc + " film records created");
+			if(uc != 0) {
+				created = true;
+			}
 
 			ResultSet keys = stmt.getGeneratedKeys();
 			int filmId = 0;
@@ -87,8 +90,6 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 				film.setId(filmId);
 			}
 			
-			created = true;
-
 			conn.commit();
 		} catch (SQLException sqle) {
 			film = null;
@@ -108,21 +109,22 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 		return created;
 	}
 
-	public boolean deleteFilm(Film film) {
+	public boolean deleteFilm(Integer filmId) {
 		Connection conn = null;
 		boolean deleted = false;
-
+		
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false);
 			sql = "DELETE FROM film WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());
+			stmt.setInt(1, filmId);
 
 			int uc = stmt.executeUpdate();
 			System.out.println(uc + " film records deleted");
-			
-			deleted = true;
+			if (uc != 0) {
+				deleted = true;
+			}
 
 			conn.commit();
 
@@ -171,8 +173,9 @@ public class JDBCFilmDAOImpl implements FilmDAO {
 
 			int uc = stmt.executeUpdate();
 			System.out.println(uc + " film records updated");
-			
-			updated = true;
+			if(uc != 0) {
+				updated = true;
+			}
 
 			conn.commit();
 

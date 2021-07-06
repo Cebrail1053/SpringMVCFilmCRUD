@@ -38,7 +38,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.createFilm(film);
 		redir.addFlashAttribute("createdFilm", f);
-		if (f == true) {
+		if (f) {
 			mv.setViewName("redirect: createdFilm.do");
 		} else {
 			mv.setViewName("WEB-INF/TaskFail.jsp");
@@ -54,11 +54,11 @@ public class FilmController {
 	}
 	
 	@RequestMapping(path="deleteFilm.do", method=RequestMethod.POST)
-	public ModelAndView deleteFilm(Film film, RedirectAttributes redir) {
+	public ModelAndView deleteFilm(Integer filmId, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		boolean f = filmDAO.deleteFilm(film);
+		boolean f = filmDAO.deleteFilm(filmId);
 		redir.addFlashAttribute("deleteFilm", f);
-		if (f == true) {
+		if (f) {
 			mv.setViewName("redirect: filmDeleted.do");
 		} else {
 			mv.setViewName("WEB-INF/TaskFail.jsp");
@@ -78,7 +78,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.updateFilm(film);
 		redir.addFlashAttribute("updatedFilm", f);
-		if(f == true) {
+		if(f) {
 			mv.setViewName("redirect: filmUpdated.do");
 		} else {
 			mv.setViewName("WEB-INF/TaskFail.jsp");
