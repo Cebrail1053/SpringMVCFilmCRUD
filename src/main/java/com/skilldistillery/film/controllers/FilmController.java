@@ -37,15 +37,19 @@ public class FilmController {
 		System.out.println(film);
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.createFilm(film);
-		redir.addFlashAttribute("createdFilm", f);
-		mv.setViewName("redirect: createdFilm.do");
+		if (f) {
+			redir.addFlashAttribute("createdFilm", f);
+			mv.setViewName("redirect: createdFilm.do");
+		} else {
+			mv.setViewName("WEB-INF/TaskFail.jsp");
+		}
 		return mv;
 	}
 	
 	@RequestMapping(path="createdFilm.do", method=RequestMethod.GET)
 	public ModelAndView filmCreated() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/AddFilmResult3.jsp");
+		mv.setViewName("WEB-INF/TaskSuccess.jsp");
 		return mv;
 	}
 	
@@ -53,15 +57,19 @@ public class FilmController {
 	public ModelAndView deleteFilm(int filmId, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.deleteFilm(filmId);
-		redir.addFlashAttribute("deleteFilm", f);
-		mv.setViewName("redirect: filmDeleted.do");
+		if (f) {
+			redir.addFlashAttribute("deleteFilm", f);
+			mv.setViewName("redirect: filmDeleted.do");
+		} else {
+			mv.setViewName("WEB-INF/TaskFail.jsp");
+		}
 		return mv;
 	}
 	
 	@RequestMapping(path="filmDeleted.do", method=RequestMethod.GET)
 	public ModelAndView filmDeleted() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/DeleteFilmResult.jsp");
+		mv.setViewName("WEB-INF/TaskSuccess.jsp");
 		return mv;
 	}
 	
@@ -69,15 +77,19 @@ public class FilmController {
 	public ModelAndView updateFilm(Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		boolean f = filmDAO.updateFilm(film);
-		redir.addFlashAttribute("updatedFilm.do", f);
-		mv.setViewName("redirect: filmUpdated.do");
+		if(f) {
+			redir.addFlashAttribute("updatedFilm", f);
+			mv.setViewName("redirect: filmUpdated.do");
+		} else {
+			mv.setViewName("WEB-INF/TaskFail.jsp");
+		}
 		return mv;
 	}
 	
-	@RequestMapping(path="updatedFilm.do", method=RequestMethod.GET)
+	@RequestMapping(path="filmUpdated.do", method=RequestMethod.GET)
 	public ModelAndView filmUpdated() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/result.jsp");
+		mv.setViewName("WEB-INF/TaskSuccess.jsp");
 		return mv;
 	}
 	

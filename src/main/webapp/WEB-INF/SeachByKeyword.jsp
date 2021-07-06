@@ -13,69 +13,46 @@
 	<h1>Welcome to the Film App</h1>
 	<c:choose>
 		<c:when test="${! empty list }">
-			<c:forEach items="${list }" var="film">
-
-				<h2>Film Title: ${film.title}</h2>
-
 				<table>
-					<tr>
-						<td>Film ID:</td>
-						<td>${film.id}</td>
-					</tr>
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Description</th>
+					<th>Release Year</th>
+					<th>Rental Duration</th>
+					<th>Rental Rate</th>
+					<th>Replacement Cost</th>
+					<th>Film Length</th>
+					<th>Rating</th>
+					<th>Special Features</th>
+					<th>Category</th>
+					<th>Actors</th>
+					
+				</tr>
+			<c:forEach items="${films }" var="film">
 
-					<tr>
-						<td>Film Title:</td>
-						<td>${film.title}</td>
-					</tr>
+				<tr>
+					<td>${film.id }</td>				
+					<td>${film.title }</td>				
+					<td>${film.description }</td>				
+					<td>${film.releaseYear }</td>				
+					<td>${film.rentalDuration }</td>				
+					<td>${film.rentalRate }</td>				
+					<td>${film.replacementCost }</td>				
+					<td>${film.length }</td>				
+					<td>${film.rating }</td>				
+					<td>${film.specialFeatures }</td>				
+					<td>${film.category }</td>		
+					<td>
+					<c:forEach items="${film.actors }" var="actor">
+						${actor.firstName }	&nbsp; ${actor.lastName }<br>			
+					</c:forEach>
+					</td>		
+				</tr>
 
-					<tr>
-						<td>Release Year:</td>
-						<td>${film.releaseYear}</td>
-					</tr>
-
-					<tr>
-						<td>Film Description:</td>
-						<td>${film.description}</td>
-					</tr>
-
-					<tr>
-						<td>Film Language:</td>
-						<td>${film.language}</td>
-					</tr>
-
-					<tr>
-						<td>Rental Duration:</td>
-						<td>${film.rentalDuration}</td>
-					</tr>
-
-					<tr>
-						<td>Rental Rate:</td>
-						<td>${film.rentalRate}</td>
-					</tr>
-
-					<tr>
-						<td>Replacement Cost:</td>
-						<td>${film.replacementCost}</td>
-					</tr>
-
-					<tr>
-						<td>Film Length:</td>
-						<td>${film.length}</td>
-					</tr>
-
-					<tr>
-						<td>Film Rating:</td>
-						<td>${film.rating}</td>
-					</tr>
-
-					<tr>
-						<td>Special Features</td>
-						<td>${film.specialFeatures}</td>
-					</tr>
-
-
-				</table>
 			</c:forEach>
+				</table>
 		</c:when>
 		<c:otherwise>
 		No results found
