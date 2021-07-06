@@ -72,8 +72,15 @@
 					<td>${film.specialFeatures}</td>
 				</tr>
 
-
 			</table>
+				
+<form action="deleteFilm.do" method="POST">
+<input type="submit" value="Click here to delete film"/>
+
+  <br>
+  	  		<br>
+<!--   <input type="submit"> -->
+</form>
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
